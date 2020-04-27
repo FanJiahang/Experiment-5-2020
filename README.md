@@ -4,6 +4,7 @@ My program
  1.每7个汉字加入一个标点符号，奇数时加“，”，偶数时加“。”
  1.1：因为每次添加标点和空白符的时候都会改变原有的文本长度，故而在文本长度上做一些规律的判断，总觉得会事倍功半，因此引入新的变量作为计数方法 int i。
 1.2： 在每两句诗后要换行，故而会出现，有的句子长度是8，而还有的是9.（这里有对实验的不足，在之后有详细写）。所以在做for(int x = 7; x <= s.length(); x = x+a)这一句中x = x+a的值是要变化的因此在每次判断加“，”和“.”后还要判断a的取值。
+```java
 int i=0;
 for(int x = 7; x <= s.length(); x = x+a){
 	    	i++;
@@ -17,9 +18,10 @@ for(int x = 7; x <= s.length(); x = x+a){
 	    		s.insert(x,".\n");
 	    		a=9;
 	    	}
-        
+```      
 2.允许提供输入参数，统计古诗中某个字或词出现的次数
       通过String类的.indexOf()和.substring()方法实现，在通过.indexOf()方法找到位置后计数，在通过.substring()方法截取之后还没统计的文本信息，利用重载最终实现：
+```java
 public static void getCount(String txt,String c){
         int index = 0;
         int count = 0;
@@ -29,9 +31,12 @@ public static void getCount(String txt,String c){
         }
         System.out.println(c +"共出现了"+count+"次");
 	}
+```
 并通过Scanner方法输入：
+```java
 Scanner sc = new Scanner(System.in);
 		  String chr = sc. nextLine() ;
+```
 通过该语句调用getCount(str,chr);
 
 
