@@ -35,7 +35,7 @@ Scanner sc = new Scanner(System.in);
 通过该语句调用getCount(str,chr);
 
 
-四、实验感想
+实验感想
 
 
   在本次实验中了解了Java中String类和String Builder类的各种方法即其中不同，其实还有String Buffer。是不过在本次实验中对线程并无要求。故而选择了String Builder类，但在查阅资料的同时，也充分了解了String Buffer。当对字符串进行修改的时候，需要使用 String Buffer 和 String Builder 类。
