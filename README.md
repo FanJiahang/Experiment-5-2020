@@ -1,46 +1,56 @@
-# FanJiahang
-## My program
+# experiment--2020  
+## 一、实验目的  
+掌握字符串String及其方法的使用  
+掌握文件的读取/写入方法  
+掌握异常处理结构  
+## 二、实验内容
+在某课上,学生要提交实验结果，该结果存储在一个文本文件A中。  
+文件A包括两部分内容：  
+一是学生的基本信息；  
+二是学生处理后的作业信息，该作业的业务逻辑内容是：利用已学的字符串处理知识编程完成《长恨歌》古诗的整理对齐工作，写出功能方法，实现如下功能：  
+## 三、实验要求  
+每7个汉字加入一个标点符号，奇数时加“，”，偶数时加“。”  
+允许提供输入参数，统计古诗中某个字或词出现的次数  
+输入的文本来源于文本文件B读取，把处理好的结果写入到文本文件A  
+考虑操作中可能出现的异常，在程序中设计异常处理程序  
+## 四、实验过程  
+### 核心代码：  
+int i=0;  
+for(int x = 7; x <= s.length(); x = x+a){  
+	    	i++;  
+	    	if(i%2!=0) {  
+	    		System.out.println("simple"+x);  
+	    		s.insert(x,",");  
+	    		a=8;  
+	    	}  
+	    	if(i%2==0) {  
+	    		System.out.println("double"+x);  
+	    		s.insert(x,".\n");  
+	    		a=9;  
+	    	}  
+    
+允许提供输入参数，统计古诗中某个字或词出现的次数  
+      通过String类的.indexOf()和.substring()方法实现，在通过.indexOf()方法找到位置后计数，在通过.substring()方法截取之后还没统计的文本信息，利用重载最终实现：  
 
- ### 1.每7个汉字加入一个标点符号，奇数时加“，”，偶数时加“。”
-#### 1.1：因为每次添加标点和空白符的时候都会改变原有的文本长度，故而在文本长度上做一些规律的判断，总觉得会事倍功半，因此引入新的变量作为计数方法 int i。
-#### 1.2： 在每两句诗后要换行，故而会出现，有的句子长度是8，而还有的是9.（这里有对实验的不足，在之后有详细写）。所以在做for(int x = 7; x <= s.length(); x = x+a)这一句中x = x+a的值是要变化的因此在每次判断加“，”和“.”后还要判断a的取值。
-```java
-int i=0;
-for(int x = 7; x <= s.length(); x = x+a){
-	    	i++;
-	    	if(i%2!=0) {
-	    		System.out.println("simple"+x);
-	    		s.insert(x,",");
-	    		a=8;
-	    	}
-	    	if(i%2==0) {
-	    		System.out.println("double"+x);
-	    		s.insert(x,".\n");
-	    		a=9;
-	    	}
-```      
-### 2.允许提供输入参数，统计古诗中某个字或词出现的次数
-      通过String类的.indexOf()和.substring()方法实现，在通过.indexOf()方法找到位置后计数，在通过.substring()方法截取之后还没统计的文本信息，利用重载最终实现：
-```java
-public static void getCount(String txt,String c){
-        int index = 0;
-        int count = 0;
-        while((index = txt.indexOf(c)) != -1){
-            count++;
-            txt = txt.substring(index + 1);
-        }
-        System.out.println(c +"共出现了"+count+"次");
-	}
-```
-并通过Scanner方法输入：
-```java
-Scanner sc = new Scanner(System.in);
-		  String chr = sc. nextLine() ;
-```
+public static void getCount(String txt,String c){  
+        int index = 0;  
+        int count = 0;  
+        while((index = txt.indexOf(c)) != -1){  
+            count++;  
+            txt = txt.substring(index + 1);  
+        }   
+        System.out.println(c +"共出现了"+count+"次");  
+	}  
+
+并通过Scanner方法输入：  
+
+Scanner sc = new Scanner(System.in);  
+		  String chr = sc. nextLine() ;  
+
 通过该语句调用getCount(str,chr);
 
 
-## 实验感想
+## 六、编程感想
 
 
   在本次实验中了解了Java中String类和String Builder类的各种方法即其中不同，其实还有String Buffer。是不过在本次实验中对线程并无要求。故而选择了String Builder类，但在查阅资料的同时，也充分了解了String Buffer。当对字符串进行修改的时候，需要使用 String Buffer 和 String Builder 类。
